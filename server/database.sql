@@ -10,10 +10,12 @@ CREATE TABLE Users (
   city VARCHAR(255),
   state VARCHAR (255),
   country VARCHAR (255),
-  zip_code VARCHAR (255)
+  zip_code VARCHAR (255),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Product (
+CREATE TABLE Products (
   product_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   description TEXT,
@@ -23,7 +25,7 @@ CREATE TABLE Product (
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Order (
+CREATE TABLE Orders (
   order_id SERIAL PRIMARY KEY,
   order_number VARCHAR (255),
   total_price DECIMAL(10, 2),
@@ -35,10 +37,21 @@ CREATE TABLE Order (
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
 
-CREATE TABLE Category (
+CREATE TABLE Categories (
   category_id SERIAL PRIMARY KEY,
   name VARCHAR (255),
   description TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE TABLE Items (
+  item_id SERIAL PRIMARY KEY,
+  product_id INT REFERENCES Products(product_id),
+  name VARCHAR (255),
+  description VARCHAR (255),
+  price DECIMAL(10, 2) NOT NULL,
+  quantity INT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
