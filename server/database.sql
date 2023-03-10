@@ -22,3 +22,15 @@ CREATE TABLE Product (
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE Order (
+  order_id SERIAL PRIMARY KEY,
+  order_number VARCHAR (255),
+  total_price DECIMAL(10, 2),
+  shipping_address VARCHAR(255),
+  payment_method VARCHAR(255),
+  status BOOLEAN,
+  user_id INTEGER REFERENCES Users(user_id),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+)
