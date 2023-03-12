@@ -28,6 +28,7 @@ CREATE TABLE Orders (
   payment_method VARCHAR(255),
   status BOOLEAN,
   user_id INTEGER REFERENCES Users(user_id),
+  address_id INTEGER REFERENCES Addresses(address_id),
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
