@@ -106,3 +106,11 @@ CREATE TABLE Carts (
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE CartItems (
+  cart_id INT REFERENCES Carts(cart_id),
+  item_id INT REFERENCES Items(item_id),
+  quantity INT NOT NULL,
+  PRIMARY KEY (cart_id, item_id)
+);
+
