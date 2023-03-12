@@ -6,11 +6,6 @@ CREATE TABLE Users (
   first_name VARCHAR(255),
   last_name VARCHAR(255),
   phone_number VARCHAR(25),
-  address VARCHAR(255),
-  city VARCHAR(255),
-  state VARCHAR (255),
-  country VARCHAR (255),
-  zip_code VARCHAR (255),
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
