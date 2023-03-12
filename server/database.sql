@@ -60,5 +60,9 @@ CREATE TABLE Items (
 CREATE TABLE Reviews (
   review_id SERIAL PRIMARY KEY,
   user_id INT REFERENCES Users(user_id),
-
+  item_id INT REFERENCES Items(item_id),
+  rating DECIMAL(2,1) NOT NULL,
+  message TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
