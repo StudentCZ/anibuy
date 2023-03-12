@@ -114,3 +114,8 @@ CREATE TABLE CartItems (
   PRIMARY KEY (cart_id, item_id)
 );
 
+CREATE TABLE WishlistItems (
+  wishlist_id INT REFERENCES Wishlists(wishlist_id),
+  item_id INT REFERENCES Items(item_id),
+  PRIMARY KEY (wishlist_id, item_id)
+);
