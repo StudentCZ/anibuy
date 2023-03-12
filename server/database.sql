@@ -35,7 +35,7 @@ CREATE TABLE Orders (
   user_id INTEGER REFERENCES Users(user_id),
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
+);
 
 CREATE TABLE Categories (
   category_id SERIAL PRIMARY KEY,
@@ -43,15 +43,22 @@ CREATE TABLE Categories (
   description TEXT,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
+);
 
 CREATE TABLE Items (
   item_id SERIAL PRIMARY KEY,
   product_id INT REFERENCES Products(product_id),
   name VARCHAR (255),
   description VARCHAR (255),
+  image_url TEXT,
   price DECIMAL(10, 2) NOT NULL,
   quantity INT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
+);
+
+CREATE TABLE Reviews (
+  review_id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES Users(user_id),
+
+);
