@@ -44,6 +44,7 @@ CREATE TABLE Categories (
 CREATE TABLE Items (
   item_id SERIAL PRIMARY KEY,
   product_id INT REFERENCES Products(product_id),
+  category_id INT REFERENCES Categories(category_id),
   name VARCHAR (255),
   description VARCHAR (255),
   image_url TEXT,
