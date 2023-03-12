@@ -85,3 +85,17 @@ CREATE TABLE Coupons (
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
+
+CREATE TABLE Addresses (
+  address_id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES Users(user_id),
+  address_type VARCHAR(255),
+  recipient_name VARCHAR(255),
+  street_address VARCHAR(255),
+  city VARCHAR(255),
+  state VARCHAR(255),
+  zip_code VARCHAR(255),
+  country VARCHAR(255),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+)
