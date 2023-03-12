@@ -77,7 +77,7 @@ CREATE TABLE Coupons (
   coupon_id SERIAL PRIMARY KEY,
   item_id INT REFERENCES Items(item_id),
   code VARCHAR(255) NOT NULL,
-  discount_amount INT NOT NULL,
+  discount_amount DECIMAL(10,2) NOT NULL,
   description TEXT,
   start_date TIMESTAMP NOT NULL,
   end_date TIMESTAMP NOT NULL,
@@ -88,6 +88,7 @@ CREATE TABLE Coupons (
 CREATE TABLE Addresses (
   address_id SERIAL PRIMARY KEY,
   user_id INT REFERENCES Users(user_id),
+  default_address VARCHAR(255),
   address_type VARCHAR(255),
   recipient_name VARCHAR(255),
   street_address VARCHAR(255),
