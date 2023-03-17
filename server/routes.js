@@ -18,6 +18,8 @@ router.get('/users', async (req, res) => {
 
 router.get('/products', async (req, res) => {
   try {
+    const result = await db.query(`SELECT * FROM Products`);
+    res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: 'Server Error' });
