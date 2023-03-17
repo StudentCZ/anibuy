@@ -16,4 +16,9 @@ router.get('/users', async (req, res) => {
   }
 });
 
+router.get('/products', async (req, res) => {
+  try {
+  } catch (error) {}
+});
+
 module.exports = router;
