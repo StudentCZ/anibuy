@@ -18,7 +18,10 @@ router.get('/users', async (req, res) => {
 
 router.get('/products', async (req, res) => {
   try {
-  } catch (error) {}
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Server Error' });
+  }
 });
 
 module.exports = router;
