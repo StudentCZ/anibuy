@@ -26,4 +26,12 @@ router.get('/products', async (req, res) => {
   }
 });
 
+router.get('/categories', async (req, res) => {
+  try {
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
+
 module.exports = router;
