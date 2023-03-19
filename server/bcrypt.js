@@ -20,8 +20,24 @@ const createUser = async (
     lastName,
     phoneNumber,
   ];
-  const response = await db.query(queryText, values);
-  return response.rows[0];
+  const res = await db.query(queryText, values);
+  return res.rows[0];
 };
 
-module.exports = { createUser };
+const compareUser = async (username, password) => {
+  const queryText = `SELECT * FROM Users WHERE username=$1`;
+  const values = [username];
+  const res = await db.query(queryText, values);
+  if (res.rows.length > 0) {
+    const match = await bcrypt.compare(password, res.rows[0].password);
+    if (match) {
+      return res.rows[0];
+    } else {
+      throw new Error('Invalid Password');
+    }
+  } else {
+    throw new Error('User Not Found');
+  }
+};
+
+module.exports = { createUser, compareUser };
